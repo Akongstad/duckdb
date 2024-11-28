@@ -1,3 +1,5 @@
+SET memory_limit = '20GB';
+
 -- Create schema
 CREATE TABLE part (
     p_partkey UINTEGER PRIMARY KEY,
@@ -88,9 +90,9 @@ CREATE TABLE lineorder (
 -- COPY lineorder FROM 'benchmark/ssb/data/sf10//lineorder.parquet' (FORMAT 'parquet');
 
 -- csv.gz
-COPY customer FROM 'benchmark/ssb/data/sf10//customer.csv.gz';
-COPY date FROM 'benchmark/ssb/data/sf10//date.csv.gz';
-COPY part FROM 'benchmark/ssb/data/sf10//part.csv.gz';
-COPY supplier FROM 'benchmark/ssb/data/sf10//supplier.csv.gz';
+COPY customer FROM 'benchmark/ssb/data/sf10/customer.csv.gz';
+COPY date FROM 'benchmark/ssb/data/sf10/date.csv.gz';
+COPY part FROM 'benchmark/ssb/data/sf10/part.csv.gz';
+COPY supplier FROM 'benchmark/ssb/data/sf10/supplier.csv.gz';
 .timer on
-COPY lineorder FROM 'benchmark/ssb/data/sf10//lineorder.csv.gz';
+COPY lineorder FROM 'benchmark/ssb/data/sf10/lineorder.csv.gz';

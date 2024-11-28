@@ -1,3 +1,8 @@
+-- Configurations
+--SET threads TO 1;
+-- SET threads TO 4;
+SET threads TO 8;
+
 -- Create schema
 CREATE TABLE part (
     p_partkey UINTEGER PRIMARY KEY,
@@ -87,7 +92,7 @@ COPY part FROM 'benchmark/ssb/data/sf1//part.parquet' (FORMAT 'parquet');
 COPY supplier FROM 'benchmark/ssb/data/sf1//supplier.parquet' (FORMAT 'parquet');
 -- .timer on
 COPY lineorder FROM 'benchmark/ssb/data/sf1//lineorder.parquet' (FORMAT 'parquet');
--- insert into lineorder select * from read_parquet('benchmark/ssb/data/sf1//lineorder.parquet');
+
 -- csv.gz
 -- COPY customer FROM 'benchmark/ssb/data/sf1//customer.csv.gz';
 -- COPY date FROM 'benchmark/ssb/data/sf1//date.csv.gz';

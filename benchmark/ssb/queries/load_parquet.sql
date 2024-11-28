@@ -12,7 +12,7 @@ FROM
 
 CREATE TABLE supplier AS
 FROM
-    read_parquet ('benchmark/ssb/data/sf1//supplier.parquet');
+    read_parquet('benchmark/ssb/data/sf1//supplier.parquet');
 
 CREATE TABLE lineorder AS
 FROM

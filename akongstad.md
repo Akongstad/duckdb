@@ -37,3 +37,13 @@ COPY (
     --- Query
 ) TO 'benchmark/ssb/answers/q04_1.csv' (HEADER, DELIMITER='|');
 ```
+
+### Export to parquet
+```sql
+EXPORT DATABASE 'benchmark/ssb/data/sf10' (FORMAT PARQUET);
+```
+
+### Creating .duckdb files intead of parquet files
+```
+duckdb benchmark/ssb/data/sf1/ssb_sf1.duckdb -init benchmark/ssb/queries/load.sql
+```
