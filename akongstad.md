@@ -19,7 +19,11 @@ pragma tpch(1);
 
 ### Running the benchmarkign suite
 ```bash
+BUILD_BENCHMARK=1 CORE_EXTENSIONS='tpch' make
 
+build/release/benchmark/benchmark_runner --list
+
+build/release/benchmark/benchmark_runner "benchmark/ssb/.*"
 ```
 
 ### Run duckdb and init ssb
@@ -31,5 +35,5 @@ duckdb -init benchmark/ssb/queries/load.sql
 ```sql
 COPY (
     --- Query
-) TO 'benchmark/ssb/answers/q04_1.csv' (HEADER);
+) TO 'benchmark/ssb/answers/q04_1.csv' (HEADER, DELIMITER='|');
 ```

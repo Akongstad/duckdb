@@ -85,10 +85,9 @@ COPY customer FROM 'benchmark/ssb/data/sf1//customer.parquet' (FORMAT 'parquet')
 COPY date FROM 'benchmark/ssb/data/sf1//date.parquet' (FORMAT 'parquet');
 COPY part FROM 'benchmark/ssb/data/sf1//part.parquet' (FORMAT 'parquet');
 COPY supplier FROM 'benchmark/ssb/data/sf1//supplier.parquet' (FORMAT 'parquet');
-.timer on
+-- .timer on
 COPY lineorder FROM 'benchmark/ssb/data/sf1//lineorder.parquet' (FORMAT 'parquet');
 -- insert into lineorder select * from read_parquet('benchmark/ssb/data/sf1//lineorder.parquet');
-
 -- csv.gz
 -- COPY customer FROM 'benchmark/ssb/data/sf1//customer.csv.gz';
 -- COPY date FROM 'benchmark/ssb/data/sf1//date.csv.gz';

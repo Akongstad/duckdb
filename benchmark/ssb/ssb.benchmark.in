@@ -13,4 +13,4 @@ load benchmark/ssb/queries/load.sql
 
 run benchmark/ssb/queries/q${QUERY_NUMBER_PADDED}.sql
 
-result benchmark/ssb/answers/${QUERY_NUMBER_PADDED}.csv
+result benchmark/ssb/answers/q${QUERY_NUMBER_PADDED}.csv
