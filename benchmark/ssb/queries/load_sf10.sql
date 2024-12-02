@@ -1,4 +1,5 @@
-SET memory_limit = '20GB';
+SET memory_limit = '80GB';
+SET threads TO 4;
 
 -- Create schema
 CREATE TABLE part (
@@ -83,16 +84,16 @@ CREATE TABLE lineorder (
 );
 
 -- parquet
--- COPY customer FROM 'benchmark/ssb/data/sf10//customer.parquet' (FORMAT 'parquet');
--- COPY date FROM 'benchmark/ssb/data/sf10//date.parquet' (FORMAT 'parquet');
--- COPY part FROM 'benchmark/ssb/data/sf100//part.parquet' (FORMAT 'parquet');
--- COPY supplier FROM 'benchmark/ssb/data/sf10//supplier.parquet' (FORMAT 'parquet');
--- COPY lineorder FROM 'benchmark/ssb/data/sf10//lineorder.parquet' (FORMAT 'parquet');
+COPY customer FROM 'benchmark/ssb/data/sf10//customer.parquet' (FORMAT 'parquet');
+COPY date FROM 'benchmark/ssb/data/sf10//date.parquet' (FORMAT 'parquet');
+COPY part FROM 'benchmark/ssb/data/sf10//part.parquet' (FORMAT 'parquet');
+COPY supplier FROM 'benchmark/ssb/data/sf10//supplier.parquet' (FORMAT 'parquet');
+COPY lineorder FROM 'benchmark/ssb/data/sf10//lineorder.parquet' (FORMAT 'parquet');
 
 -- csv.gz
-COPY customer FROM 'benchmark/ssb/data/sf10/customer.csv.gz';
-COPY date FROM 'benchmark/ssb/data/sf10/date.csv.gz';
-COPY part FROM 'benchmark/ssb/data/sf10/part.csv.gz';
-COPY supplier FROM 'benchmark/ssb/data/sf10/supplier.csv.gz';
-.timer on
-COPY lineorder FROM 'benchmark/ssb/data/sf10/lineorder.csv.gz';
+-- COPY customer FROM 'benchmark/ssb/data/sf10/customer.csv.gz';
+-- COPY date FROM 'benchmark/ssb/data/sf10/date.csv.gz';
+-- COPY part FROM 'benchmark/ssb/data/sf10/part.csv.gz';
+-- COPY supplier FROM 'benchmark/ssb/data/sf10/supplier.csv.gz';
+-- .timer on
+-- COPY lineorder FROM 'benchmark/ssb/data/sf10/lineorder.csv.gz';

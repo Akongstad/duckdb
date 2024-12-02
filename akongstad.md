@@ -47,3 +47,5 @@ EXPORT DATABASE 'benchmark/ssb/data/sf10' (FORMAT PARQUET);
 ```
 duckdb benchmark/ssb/data/sf1/ssb_sf1.duckdb -init benchmark/ssb/queries/load.sql
 ```
+
+### Splite tbl files

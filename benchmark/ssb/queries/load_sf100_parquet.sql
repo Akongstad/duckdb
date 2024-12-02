@@ -1,7 +1,3 @@
-SET threads TO 4;
---SET memory_limit = '14GB';
-SET max_temp_directory_size = '100GB';
-
 -- Create schema
 CREATE or replace TABLE part (
     p_partkey UINTEGER PRIMARY KEY,
@@ -58,11 +54,10 @@ CREATE or replace TABLE date(
     d_weekdayfl UTINYINT,
 );
 
-COPY customer FROM 'benchmark/ssb/data/sf10//customer.parquet' (FORMAT 'parquet');
-COPY date FROM 'benchmark/ssb/data/sf10//date.parquet' (FORMAT 'parquet');
-COPY part FROM 'benchmark/ssb/data/sf10//part.parquet' (FORMAT 'parquet');
-COPY supplier FROM 'benchmark/ssb/data/sf10//supplier.parquet' (FORMAT 'parquet');
-.timer on
-CREATE or replace TABLE lineorder AS
-FROM
-    read_parquet ('benchmark/ssb/data/sf10//lineorder.parquet');
+COPY customer FROM 'benchmark/ssb/data/sf100//customer.parquet' (FORMAT 'parquet');
+COPY date FROM 'benchmark/ssb/data/sf100//date.parquet' (FORMAT 'parquet');
+COPY part FROM 'benchmark/ssb/data/sf100//part.parquet' (FORMAT 'parquet');
+COPY supplier FROM 'benchmark/ssb/data/sf100//supplier.parquet' (FORMAT 'parquet');
+
+CREATE or replace TABLE lineorder AS FROM
+    read_parquet ('benchmark/ssb/data/sf100//lineorder.parquet');
