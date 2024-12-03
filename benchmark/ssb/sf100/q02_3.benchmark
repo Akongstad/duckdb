@@ -1,0 +1,7 @@
+# name: benchmark/ssb/q02_3.benchmark
+# description: Run query 2.3 from the ssb benchmark
+# group: [ssb-sf100]
+
+template benchmark/ssb/sf100/ssb.benchmark.in
+QUERY_NUMBER=2_3
+QUERY_NUMBER_PADDED=02_3

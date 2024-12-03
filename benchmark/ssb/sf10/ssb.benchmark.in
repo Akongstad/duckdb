@@ -1,0 +1,16 @@
+# name: ${FILE_PATH}
+# description: ${DESCRIPTION}
+# group: [ssb-sf10]
+
+name Q${QUERY_NUMBER_PADDED}
+group ssb-sf10
+
+require parquet
+
+cache ssb_sf10.duckdb
+
+load benchmark/ssb/queries/load_sf10_parquet.sql
+
+run benchmark/ssb/queries/q${QUERY_NUMBER_PADDED}.sql
+
+result benchmark/ssb/answers/q${QUERY_NUMBER_PADDED}_sf10.csv
