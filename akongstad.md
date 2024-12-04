@@ -7,22 +7,49 @@ A compilation of commands used to complete Project 2.
 ```bash
 BUILD_BENCHMARK=1 CORE_EXTENSIONS='tpch' make
 
+#Thread exp
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q01_1.benchmark --out=benchmark/ssb/results/sf10/q01_1_results.csv --log=benchmark/ssb/results/q01_1_results_logs.json --profile --threads=1
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q01_1.benchmark --out=benchmark/ssb/results/sf10/q01_1_results.csv --log=benchmark/ssb/results/q01_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q01_1.benchmark --out=benchmark/ssb/results/sf10/q01_1_results.csv --log=benchmark/ssb/results/q01_1_results_logs.json --profile --threads=8
+
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q03_1.benchmark --out=benchmark/ssb/results/sf10/q03_1_results.csv --log=benchmark/ssb/results/q03_1_results_logs.json --profile --threads=1
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q03_1.benchmark --out=benchmark/ssb/results/sf10/q03_1_results.csv --log=benchmark/ssb/results/q03_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q03_1.benchmark --out=benchmark/ssb/results/sf10/q03_1_results.csv --log=benchmark/ssb/results/q03_1_results_logs.json --profile --threads=8
+
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q04_1.benchmark --out=benchmark/ssb/results/sf10/q04_1_results.csv --log=benchmark/ssb/results/q04_1_results_logs.json --profile --threads=1
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q04_1.benchmark --out=benchmark/ssb/results/sf10/q04_1_results.csv --log=benchmark/ssb/results/q04_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q04_1.benchmark --out=benchmark/ssb/results/sf10/q04_1_results.csv --log=benchmark/ssb/results/q04_1_results_logs.json --profile --threads=8
+
 #sf1
-build/release/benchmark/benchmark_runner benchmark/ssb/sf1/q01_1.benchmark
-build/release/benchmark/benchmark_runner benchmark/ssb/sf1/q03_1.benchmark
-build/release/benchmark/benchmark_runner benchmark/ssb/sf1/q04_1.benchmark
+build/release/benchmark/benchmark_runner benchmark/ssb/sf1/q01_1.benchmark --out=benchmark/ssb/results/q01_1_results.csv --log=benchmark/ssb/results/q01_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf1/q03_1.benchmark --out=benchmark/ssb/results/q03_1_results.csv --log=benchmark/ssb/results/q03_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf1/q04_1.benchmark --out=benchmark/ssb/results/q04_1_results.csv --log=benchmark/ssb/results/q04_1_results_logs.json --profile --threads=4
 
 #sf10
-build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q01_1.benchmark
-build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q03_1.benchmark
-build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q04_1.benchmark
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q01_1.benchmark --out=benchmark/ssb/results/q01_1_results.csv --log=benchmark/ssb/results/q01_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q03_1.benchmark --out=benchmark/ssb/results/q03_1_results.csv --log=benchmark/ssb/results/q03_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf10/q04_3.benchmark --out=benchmark/ssb/results/q04_1_results.csv --log=benchmark/ssb/results/q04_1_results_logs.json --profile --threads=4
 
 #sf100
-build/release/benchmark/benchmark_runner benchmark/ssb/sf100/q01_1.benchmark
-build/release/benchmark/benchmark_runner benchmark/ssb/sf100/q03_1.benchmark
-build/release/benchmark/benchmark_runner benchmark/ssb/sf100/q04_1.benchmark
+build/release/benchmark/benchmark_runner benchmark/ssb/sf100/q01_1.benchmark --out=benchmark/ssb/results/q01_1_results.csv --log=benchmark/ssb/results/q01_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf100/q03_1.benchmark --out=benchmark/ssb/results/q03_1_results.csv --log=benchmark/ssb/results/q03_1_results_logs.json --profile --threads=4
+build/release/benchmark/benchmark_runner benchmark/ssb/sf100/q04_1.benchmark --out=benchmark/ssb/results/q04_1_results.csv --log=benchmark/ssb/results/q04_1_results_logs.json --profile --threads=4
 ```
 
+#### Run all benchmarks
+```bash
+#sf1
+build/release/benchmark/benchmark_runner "benchmark/ssb/sf1/.*"
+
+#sf10
+build/release/benchmark/benchmark_runner "benchmark/ssb/sf10/.*"
+
+#sf100
+build/release/benchmark/benchmark_runner "benchmark/ssb/sf100/.*"
+
+# All
+build/release/benchmark/benchmark_runner "benchmark/ssb/.*"
+```
 ---
 
 ### Generating answer.csv
