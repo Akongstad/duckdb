@@ -1,6 +1,6 @@
 # Useful things for Project 2 ADS
 
-A compilation of commands used to complete Project 2.
+A compilation of useful commands for complete Project 2.
 
 ## Running the experiments
 
@@ -76,7 +76,7 @@ SET profiling_mode = 'detailed';
 pragma tpch(1);
 ```
 
-### Running the benchmarkign suite
+### Running the benchmarking suite
 
 ```bash
 BUILD_BENCHMARK=1 CORE_EXTENSIONS='tpch' make
@@ -92,21 +92,13 @@ build/release/benchmark/benchmark_runner "benchmark/ssb/.*"
 duckdb -init benchmark/ssb/queries/load.sql
 ```
 
-### Create answer files
-
-```sql
-COPY (
-    --- Query
-) TO 'benchmark/ssb/answers/q04_1.csv' (HEADER, DELIMITER='|');
-```
-
 ### Export to parquet
 
 ```sql
 EXPORT DATABASE 'benchmark/ssb/data/sf10' (FORMAT PARQUET);
 ```
 
-### run duckdb and initialize with loads script
+### run duckdb persistent and initialize with loads script
 
 ```
 duckdb benchmark/ssb/data/sf1/ssb_sf1.duckdb -init benchmark/ssb/queries/load.sql
