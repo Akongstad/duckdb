@@ -1,8 +1,18 @@
-# Useful things for Project 2 ADS
+# Project 2 | Advance Datasystems ITU 2024
 
-A compilation of useful commands for complete Project 2.
+This folder contains the code for the SSB benchmark.
 
-## Running the experiments
+- **ssb/answers**: answers to ssb queries as csv.
+- **ssb/data/**: ssb table data as parquet file in sf1, sf10, and sf100 folders.
+- **ssb/queries**: ssb queries as sql.
+- **ssb/sf1**: benchmark files and .in files for the sf1 benchmark.
+- **ssb/sf10**: benchmark files and .in files for the sf10 benchmark.
+- **ssb/sf100**: benchmark files and .in files for the sf100 benchmark.
+- **ssb/results**: experiment results.
+
+## Compilation of useful commands for complete Project 2.
+
+### Running the experiments
 
 ```bash
 BUILD_BENCHMARK=1 CORE_EXTENSIONS='tpch' make
@@ -37,6 +47,7 @@ build/release/benchmark/benchmark_runner benchmark/ssb/sf100/q04_1.benchmark --o
 ```
 
 #### Run all benchmarks
+
 ```bash
 #sf1
 build/release/benchmark/benchmark_runner "benchmark/ssb/sf1/.*"
@@ -50,6 +61,7 @@ build/release/benchmark/benchmark_runner "benchmark/ssb/sf100/.*"
 # All
 build/release/benchmark/benchmark_runner "benchmark/ssb/.*"
 ```
+
 ---
 
 ### Generating answer.csv
@@ -102,4 +114,13 @@ EXPORT DATABASE 'benchmark/ssb/data/sf10' (FORMAT PARQUET);
 
 ```
 duckdb benchmark/ssb/data/sf1/ssb_sf1.duckdb -init benchmark/ssb/queries/load.sql
+```
+
+### Test profiling performance
+
+```bash
+
+build/release/benchmark/benchmark_runner benchmark/tpch/sf1/q01.benchmark
+build/release/benchmark/benchmark_runner benchmark/tpch/sf1/q01.benchmark --profile --out=test.csv
+build/release/benchmark/benchmark_runner benchmark/tpch/sf1/q01.benchmark --detailed-profile --out=test.csv
 ```
